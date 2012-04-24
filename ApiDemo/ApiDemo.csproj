@@ -261,5 +261,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="View\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidJavaSource Include="server-standalone.jar" />
+  </ItemGroup>
 </Project>

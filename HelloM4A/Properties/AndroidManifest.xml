@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="HelloM4A.HelloM4A">
+	<application android:label="HelloM4A">
+	</application>
+	<uses-sdk />
+    <instrumentation
+     android:targetPackage="HelloM4A.HelloM4A"
+     android:name="com.google.android.testing.nativedriver.server.ServerInstrumentation" />
+  <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+</manifest>
