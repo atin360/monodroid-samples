@@ -30,12 +30,24 @@
 			 $(MSBuildStartupDirectory)\TextureViewDemo\*.csproj;
 			 $(MSBuildStartupDirectory)\SearchableDictionary\*.csproj;" />
 </ItemGroup>
-<Target Name="Froyo">
+<Target Condition="'$(AndroidPlatform)' == 'Froyo'"
+	Name="Build"
+	DependsOnTargets="Froyo">
+</Target>
+<Target Condition="'$(AndroidPlatform)' == 'Honeycomb'
+	Name="Build"
+	DependsOnTargets="Honeycomb">
+</Target>
+<Target Condition="'$(AndroidPlatform)' == 'IcecreamSandwich'"
+	Name="Build"
+	DependsOnTargets="IceCreamSandwich">
+</Target>
+<Target	Name="Froyo">
 	<MSBuild
 		Projects="@(FroyoProjects)"
 		Targets="Package" />
 </Target>
-<Target Name="Honeycomb"
+<Target	Name="Honeycomb"
 	DependsOnTargets="Froyo">
 	<MSBuild 
 		Projects="@(HoneyCombProjects)"
