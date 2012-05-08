@@ -34,7 +34,7 @@
 	Name="Build"
 	DependsOnTargets="Froyo">
 </Target>
-<Target Condition="'$(AndroidPlatform)' == 'Honeycomb'
+<Target Condition="'$(AndroidPlatform)' == 'Honeycomb'"
 	Name="Build"
 	DependsOnTargets="Honeycomb">
 </Target>
@@ -45,18 +45,21 @@
 <Target	Name="Froyo">
 	<MSBuild
 		Projects="@(FroyoProjects)"
-		Targets="Package" />
+		Targets="Package"
+		Properties="TargetFrameworkVersion=2.1" />
 </Target>
 <Target	Name="Honeycomb"
 	DependsOnTargets="Froyo">
 	<MSBuild 
 		Projects="@(HoneyCombProjects)"
-		Targets="Package" />
+		Targets="Package"
+		Properties="TargetFrameworkVersion=3.1" />
 </Target>
 <Target Name="IceCreamSandwich" 
 	DependsOnTargets="Honeycomb">
 	<MSBuild
 		Projets="@(IceCreamSandwichProjects)"
-		Target="Package" />
+		Target="Package"
+		Properties="TargetFrameworkVersion=4.0" />
 </Target>
 </Project>
