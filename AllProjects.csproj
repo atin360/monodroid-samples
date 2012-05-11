@@ -60,7 +60,7 @@
 </Target>
 <Target>
 	<MSBuild
-		Projects="@(GingerbreadProjects"
+		Projects="@(GingerbreadProjects)"
 		Targets="_Sign"
 		Properties="TargetFrameworkVersion=v2.3" />
 </Target>
