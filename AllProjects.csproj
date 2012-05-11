@@ -58,21 +58,19 @@
 		Targets="_Sign"
 		Properties="TargetFrameworkVersion=v2.1" />
 </Target>
-<Target>
+<Target Name="Gingerbread">
 	<MSBuild
 		Projects="@(GingerbreadProjects)"
 		Targets="_Sign"
 		Properties="TargetFrameworkVersion=v2.3" />
 </Target>
-<Target	Name="Honeycomb"
-	DependsOnTargets="Froyo">
+<Target	Name="Honeycomb">
 	<MSBuild 
 		Projects="@(HoneyCombProjects)"
 		Targets="_Sign"
 		Properties="TargetFrameworkVersion=v3.1" />
 </Target>
-<Target Name="IceCreamSandwich" 
-	DependsOnTargets="Honeycomb">
+<Target Name="IceCreamSandwich">
 	<MSBuild
 		Projets="@(IceCreamSandwichProjects)"
 		Target="_Sign"
