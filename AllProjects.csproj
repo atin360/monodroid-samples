@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Froyo" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 <ItemGroup>
-	<FroyoProjects 
-		Include="$(MSBuildStartupDirectory)\**\*.csproj"
-		Exclude="@(HoneyCombProjects);@(IceCreamSandwichProjects);
+	<FroyoProjects
+		Include="@(GingerbreadProjects)"
+		Exclude="$(MSBuildStartupDirectory)\AppProjects.csproj;" />	
+	<GingerbreadProjects
+		Include="@(HoneyCombProjects)"
+		Exclude=" $(MSBuildStartupDirectory)\HoneycombGallery\*.csproj;
 			 $(MSBuildStartupDirectory)\AppProjects.csproj;
 			 $(MSBuildStartupDirectory)\CalendarDemo\*.csproj;
 			 $(MSBuildStartupDirectory)\GLDiagnostics\*.csproj;
@@ -16,11 +19,11 @@
 			 $(MSBuildStartupDirectory)\SvgAndroid\**;
 			 $(MSBuildStartupDirectory)\DynamicTest\**;
 			 $(MSBuildStartupDirectory)\AdMob\**;
-			 $(MSBuildStartupDirectory)\ContactManager\*.csproj" />	
+			 $(MSBuildStartupDirectory)\ContactManager\*.csproj"/>
 	<HoneyCombProjects
-		Include="$(MSBuildStartupDirectory)\HoneycombGallery\*.csproj" />
-	<IceCreamSandwichProjects
-		Include="$(MSBuildStartupDirectory)\ContactsProviderDemo\*.csproj;
+		Include="@(IceCreamSandwichProjects)"
+		Exclude="$(MSBuildStartupDirectory)\AppProjects.csproj;
+			 $(MSBuildStartupDirectory)\ContactsProviderDemo\*.csproj;
 			 $(MSBuildStartupDirectory)\GridLayoutDemo\*.csproj;
 			 $(MSBuildStartupDirectory)\HelloTabsICS\*.csproj;
 			 $(MSBuildStartupDirectory)\PopupMenuDemo\*.csproj;
@@ -29,11 +32,18 @@
 			 $(MSBuildStartupDirectory)\SystemUIVisibilityDemo\*.csproj;
 			 $(MSBuildStartupDirectory)\TextureViewDemo\*.csproj;
 			 $(MSBuildStartupDirectory)\SearchableDictionary\*.csproj;" />
+	<IceCreamSandwichProjects
+		Include="$(MSBuildStartupDirectory)\**\*.csproj"
+		Exclude="$(MSBuildStartupDirectory)\AppProjects.csproj;"/>
+		
 </ItemGroup>
 <Target Condition="'$(AndroidPlatform)' == 'Froyo'"
 	Name="Build"
 	DependsOnTargets="Froyo">
 </Target>
+<Target Condition="'$(AndroidPlatform)' == 'Gingerbread'"
+	Name="Build"
+	DependsOnTargets="Gingerbread">
 <Target Condition="'$(AndroidPlatform)' == 'Honeycomb'"
 	Name="Build"
 	DependsOnTargets="Honeycomb">
@@ -45,21 +55,27 @@
 <Target	Name="Froyo">
 	<MSBuild
 		Projects="@(FroyoProjects)"
-		Targets="Package"
-		Properties="TargetFrameworkVersion=2.1" />
+		Targets="_Sign"
+		Properties="TargetFrameworkVersion=v2.1" />
+</Target>
+<Target>
+	<MSBuild
+		Projects="@(GingerbreadProjects"
+		Targets="_Sign"
+		Properties="TargetFrameworkVersion=v2.3" />
 </Target>
 <Target	Name="Honeycomb"
 	DependsOnTargets="Froyo">
 	<MSBuild 
 		Projects="@(HoneyCombProjects)"
-		Targets="Package"
-		Properties="TargetFrameworkVersion=3.1" />
+		Targets="_Sign"
+		Properties="TargetFrameworkVersion=v3.1" />
 </Target>
 <Target Name="IceCreamSandwich" 
 	DependsOnTargets="Honeycomb">
 	<MSBuild
 		Projets="@(IceCreamSandwichProjects)"
-		Target="Package"
-		Properties="TargetFrameworkVersion=4.0" />
+		Target="_Sign"
+		Properties="TargetFrameworkVersion=v4.0" />
 </Target>
 </Project>
