@@ -1,79 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Froyo" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-<ItemGroup>
-	<FroyoProjects
-		Include="@(GingerbreadProjects)"
-		Exclude="$(MSBuildStartupDirectory)\AppProjects.csproj;" />	
-	<GingerbreadProjects
-		Include="@(HoneyCombProjects)"
-		Exclude=" $(MSBuildStartupDirectory)\HoneycombGallery\*.csproj;
-			 $(MSBuildStartupDirectory)\AppProjects.csproj;
-			 $(MSBuildStartupDirectory)\CalendarDemo\*.csproj;
-			 $(MSBuildStartupDirectory)\GLDiagnostics\*.csproj;
-			 $(MSBuildStartupDirectory)\JniDemo\*.csproj;
-			 $(MSBuildStartupDirectory)\MapsAndLocationDemo\*.csproj;
-			 $(MSBuildStartupDirectory)\MapsDemo\*.csproj;
-			 $(MSBuildStartupDirectory)\SanityTests\*.csproj;
-			 $(MSBuildStartupDirectory)\Facebook\**;
-			 $(MSBuildStartupDirectory)\SPenSdkBinding\**;
-			 $(MSBuildStartupDirectory)\SvgAndroid\**;
-			 $(MSBuildStartupDirectory)\DynamicTest\**;
-			 $(MSBuildStartupDirectory)\AdMob\**;
-			 $(MSBuildStartupDirectory)\ContactManager\*.csproj"/>
-	<HoneyCombProjects
-		Include="@(IceCreamSandwichProjects)"
-		Exclude="$(MSBuildStartupDirectory)\AppProjects.csproj;
-			 $(MSBuildStartupDirectory)\ContactsProviderDemo\*.csproj;
-			 $(MSBuildStartupDirectory)\GridLayoutDemo\*.csproj;
-			 $(MSBuildStartupDirectory)\HelloTabsICS\*.csproj;
-			 $(MSBuildStartupDirectory)\PopupMenuDemo\*.csproj;
-			 $(MSBuildStartupDirectory)\ShareActionProviderDemo\*csproj;
-			 $(MSBuildStartupDirectory)\SwitchDemo\*.csproj;
-			 $(MSBuildStartupDirectory)\SystemUIVisibilityDemo\*.csproj;
-			 $(MSBuildStartupDirectory)\TextureViewDemo\*.csproj;
-			 $(MSBuildStartupDirectory)\SearchableDictionary\*.csproj;" />
-	<IceCreamSandwichProjects
-		Include="$(MSBuildStartupDirectory)\**\*.csproj"
-		Exclude="$(MSBuildStartupDirectory)\AppProjects.csproj;"/>
-		
-</ItemGroup>
-<Target Condition="'$(AndroidPlatform)' == 'Froyo'"
-	Name="Build"
-	DependsOnTargets="Froyo">
-</Target>
-<Target Condition="'$(AndroidPlatform)' == 'Gingerbread'"
-	Name="Build"
-	DependsOnTargets="Gingerbread">
-<Target Condition="'$(AndroidPlatform)' == 'Honeycomb'"
-	Name="Build"
-	DependsOnTargets="Honeycomb">
-</Target>
-<Target Condition="'$(AndroidPlatform)' == 'IcecreamSandwich'"
-	Name="Build"
-	DependsOnTargets="IceCreamSandwich">
-</Target>
-<Target	Name="Froyo">
-	<MSBuild
-		Projects="@(FroyoProjects)"
-		Targets="_Sign"
-		Properties="TargetFrameworkVersion=v2.1" />
-</Target>
-<Target Name="Gingerbread">
-	<MSBuild
-		Projects="@(GingerbreadProjects)"
-		Targets="_Sign"
-		Properties="TargetFrameworkVersion=v2.3" />
-</Target>
-<Target	Name="Honeycomb">
-	<MSBuild 
-		Projects="@(HoneyCombProjects)"
-		Targets="_Sign"
-		Properties="TargetFrameworkVersion=v3.1" />
-</Target>
-<Target Name="IceCreamSandwich">
-	<MSBuild
-		Projets="@(IceCreamSandwichProjects)"
-		Target="_Sign"
-		Properties="TargetFrameworkVersion=v4.0" />
-</Target>
+	<ItemGroup>
+		<FroyoProjects
+			Include="@(GingerbreadProjects)"
+			Exclude="$(MSBuildStartupDirectory)\AppProjects.csproj;" />	
+		<GingerbreadProjects
+			Include="@(HoneyCombProjects)"
+			Exclude=" $(MSBuildStartupDirectory)\HoneycombGallery\*.csproj;
+				 $(MSBuildStartupDirectory)\AppProjects.csproj;
+				 $(MSBuildStartupDirectory)\CalendarDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\GLDiagnostics\*.csproj;
+				 $(MSBuildStartupDirectory)\JniDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\MapsAndLocationDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\MapsDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\SanityTests\*.csproj;
+				 $(MSBuildStartupDirectory)\Facebook\**;
+				 $(MSBuildStartupDirectory)\SPenSdkBinding\**;
+				 $(MSBuildStartupDirectory)\SvgAndroid\**;
+				 $(MSBuildStartupDirectory)\DynamicTest\**;
+				 $(MSBuildStartupDirectory)\AdMob\**;
+				 $(MSBuildStartupDirectory)\ContactManager\*.csproj" />
+		<HoneyCombProjects
+			Include="@(IceCreamSandwichProjects)"
+			Exclude="$(MSBuildStartupDirectory)\AppProjects.csproj;
+				 $(MSBuildStartupDirectory)\ContactsProviderDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\GridLayoutDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\HelloTabsICS\*.csproj;
+				 $(MSBuildStartupDirectory)\PopupMenuDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\ShareActionProviderDemo\*csproj;
+				 $(MSBuildStartupDirectory)\SwitchDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\SystemUIVisibilityDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\TextureViewDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\SearchableDictionary\*.csproj;" />
+		<IceCreamSandwichProjects
+			Include="$(MSBuildStartupDirectory)\**\*.csproj"
+			Exclude="$(MSBuildStartupDirectory)\AppProjects.csproj;" />
+	</ItemGroup>
+	<Target Condition="'$(AndroidPlatform)' == 'Froyo'"
+		Name="Build"
+		DependsOnTargets="Froyo">
+	</Target>
+	<Target Condition="'$(AndroidPlatform)' == 'Gingerbread'"
+		Name="Build"
+		DependsOnTargets="Gingerbread">
+	</Target>
+	<Target Condition="'$(AndroidPlatform)' == 'Honeycomb'"
+		Name="Build"
+		DependsOnTargets="Honeycomb">
+	</Target>
+	<Target Condition="'$(AndroidPlatform)' == 'IcecreamSandwich'"
+		Name="Build"
+		DependsOnTargets="IceCreamSandwich">
+	</Target>
+	
+	<Target	Name="Froyo">
+		<MSBuild
+			Projects="@(FroyoProjects)"
+			Targets="_Sign"
+			Properties="TargetFrameworkVersion=v2.1" />
+	</Target>
+	<Target Name="Gingerbread">
+		<MSBuild
+			Projects="@(GingerbreadProjects)"
+			Targets="_Sign"
+			Properties="TargetFrameworkVersion=v2.3" />
+	</Target>
+	<Target	Name="Honeycomb">
+		<MSBuild 
+			Projects="@(HoneyCombProjects)"
+			Targets="_Sign"
+			Properties="TargetFrameworkVersion=v3.1" />
+	</Target>
+	<Target Name="IceCreamSandwich">
+		<MSBuild
+			Projets="@(IceCreamSandwichProjects)"
+			Target="_Sign"
+			Properties="TargetFrameworkVersion=v4.0" />
+	</Target>
 </Project>
