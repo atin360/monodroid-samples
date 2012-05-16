@@ -69,45 +69,27 @@
 			Include="$(MSBuildStartupDirectory)\**\*.csproj"
 			Exclude="$(MSBuildStartupDirectory)\AllProjects.csproj;" />
 	</ItemGroup>
-	<Target Condition="'$(AndroidPlatform)' == 'Froyo'"
-		Name="Build"
-		DependsOnTargets="Froyo">
-	</Target>
-	<Target Condition="'$(AndroidPlatform)' == 'Gingerbread'"
-		Name="Build"
-		DependsOnTargets="Gingerbread">
-	</Target>
-	<Target Condition="'$(AndroidPlatform)' == 'Honeycomb'"
-		Name="Build"
-		DependsOnTargets="Honeycomb">
-	</Target>
-	<Target Condition="'$(AndroidPlatform)' == 'IcecreamSandwich'"
-		Name="Build"
-		DependsOnTargets="IceCreamSandwich">
-	</Target>
 	
-	<Target	Name="Froyo">
+	<Target Name="Build">
 		<MSBuild
+			Condition="'$(AndroidPlatform)' == 'Froyo'"
 			Projects="@(FroyoProjects)"
 			Targets="_Sign"
 			Properties="TargetFrameworkVersion=v2.1" />
-	</Target>
-	<Target Name="Gingerbread">
 		<MSBuild
+			Condition="'$(AndroidPlatform)' == 'Gingerbread'"
 			Projects="@(GingerbreadProjects)"
 			Targets="_Sign"
 			Properties="TargetFrameworkVersion=v2.3" />
-	</Target>
-	<Target	Name="Honeycomb">
-		<MSBuild 
-			Projects="@(HoneyCombProjects)"
+		<MSBuild
+			Condition="'$(AndroidPlatform)' == 'Honeycomb'"
+			Projects="@(HoneycombProjects)"
 			Targets="_Sign"
 			Properties="TargetFrameworkVersion=v3.1" />
-	</Target>
-	<Target Name="IceCreamSandwich">
 		<MSBuild
-			Projets="@(IceCreamSandwichProjects)"
-			Target="_Sign"
+			Condition="'$(AndroidPlatform)' == 'IcecreamSandwich'"
+			Projects="@(IceCreamSandwichProjects)"
+			Targets="_Sign"
 			Properties="TargetFrameworkVersion=v4.0" />
 	</Target>
 </Project>
