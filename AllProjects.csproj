@@ -74,22 +74,22 @@
 		<MSBuild
 			Condition="'$(AndroidPlatform)' == 'Froyo'"
 			Projects="@(FroyoProjects)"
-			Targets="_Sign"
+			Targets="SignAndroidPackage"
 			Properties="TargetFrameworkVersion=v2.1" />
 		<MSBuild
 			Condition="'$(AndroidPlatform)' == 'Gingerbread'"
 			Projects="@(GingerbreadProjects)"
-			Targets="_Sign"
+			Targets="SignAndroidPackage"
 			Properties="TargetFrameworkVersion=v2.3" />
 		<MSBuild
 			Condition="'$(AndroidPlatform)' == 'Honeycomb'"
 			Projects="@(HoneycombProjects)"
-			Targets="_Sign"
+			Targets="SignAndroidPackage"
 			Properties="TargetFrameworkVersion=v3.1" />
 		<MSBuild
 			Condition="'$(AndroidPlatform)' == 'IcecreamSandwich'"
 			Projects="@(IceCreamSandwichProjects)"
-			Targets="_Sign"
+			Targets="SignAndroidPackage"
 			Properties="TargetFrameworkVersion=v4.0" />
 	</Target>
 </Project>
