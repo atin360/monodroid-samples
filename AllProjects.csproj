@@ -4,6 +4,7 @@
 		<FroyoProjects
 			Include="$(MSBuildStartupDirectory)\**\*.csproj"
 			Exclude="$(MSBuildStartupDirectory)\AllProjects.csproj;
+				 $(MSBuildStartupDirectory)\Facebook\*.csproj;
 				 $(MSBuildStartupDirectory)\ContactsProviderDemo\*.csproj;
 				 $(MSBuildStartupDirectory)\GridLayoutDemo\*.csproj;
 				 $(MSBuildStartupDirectory)\HelloTabsICS\*.csproj;
@@ -26,10 +27,20 @@
 				 $(MSBuildStartupDirectory)\SvgAndroid\**;
 				 $(MSBuildStartupDirectory)\DynamicTest\**;
 				 $(MSBuildStartupDirectory)\AdMob\**;
-				 $(MSBuildStartupDirectory)\ContactManager\*.csproj" />	
+				 $(MSBuildStartupDirectory)\ContactManager\*.csproj;
+				 $(MSBuildStartupDirectory)\JniDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\MapsAndLocationDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\MapsDemo\*;
+				 $(MSBuildStartupDirectory)\AndroidBeamDemo\*;
+				 $(MSBuildStartupDirectory)\CalendarDemo\*;
+				 $(MSBuildStartupDirectory)\ContentControls\*;
+				 $(MSBuildStartupDirectory)\TablesAndCellStyles\*;
+				 $(MSBuildStartupDirectory)\StandardControls\*" />	
+				 
 		<GingerbreadProjects
 			Include="$(MSBuildStartupDirectory)\**\*.csproj"
 			Exclude="$(MSBuildStartupDirectory)\AllProjects.csproj;
+				 $(MSBuildStartupDirectory)\Facebook\*.csproj;
 				 $(MSBuildStartupDirectory)\ContactsProviderDemo\*.csproj;
 				 $(MSBuildStartupDirectory)\GridLayoutDemo\*.csproj;
 				 $(MSBuildStartupDirectory)\HelloTabsICS\*.csproj;
@@ -52,10 +63,21 @@
 				 $(MSBuildStartupDirectory)\SvgAndroid\**;
 				 $(MSBuildStartupDirectory)\DynamicTest\**;
 				 $(MSBuildStartupDirectory)\AdMob\**;
-				 $(MSBuildStartupDirectory)\ContactManager\*.csproj" />
+				 $(MSBuildStartupDirectory)\ContactManager\*.csproj;
+				 $(MSBuildStartupDirectory)\JniDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\MapsAndLocationDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\MapsDemo\*.csproj
+				 $(MSBuildStartupDirectory)\AndroidBeamDemo\*;
+				 $(MSBuildStartupDirectory)\CalendarDemo\*;
+				 $(MSBuildStartupDirectory)\ContentControls\*;
+				 $(MSBuildStartupDirectory)\TablesAndCellStyles\**;
+				 $(MSBuildStartupDirectory)\StandardControls\*" />
+	
+				 
 		<HoneyCombProjects
 			Include="$(MSBuildStartupDirectory)\**\*.csproj"
 			Exclude="$(MSBuildStartupDirectory)\AllProjects.csproj;
+				 $(MSBuildStartupDirectory)\Facebook\*.csproj;
 				 $(MSBuildStartupDirectory)\ContactsProviderDemo\*.csproj;
 				 $(MSBuildStartupDirectory)\GridLayoutDemo\*.csproj;
 				 $(MSBuildStartupDirectory)\HelloTabsICS\*.csproj;
@@ -64,10 +86,21 @@
 				 $(MSBuildStartupDirectory)\SwitchDemo\*.csproj;
 				 $(MSBuildStartupDirectory)\SystemUIVisibilityDemo\*.csproj;
 				 $(MSBuildStartupDirectory)\TextureViewDemo\*.csproj;
-				 $(MSBuildStartupDirectory)\SearchableDictionary\*.csproj;" />
+				 $(MSBuildStartupDirectory)\SearchableDictionary\*.csproj;
+				 $(MSBuildStartupDirectory)\JniDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\MapsAndLocationDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\MapsDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\AndroidBeamDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\CalendarDemo\*.csproj;
+				 $(MSBuildStartupDirectory)\ContentControls\*.csproj" />
+				 
 		<IceCreamSandwichProjects
 			Include="$(MSBuildStartupDirectory)\**\*.csproj"
-			Exclude="$(MSBuildStartupDirectory)\AllProjects.csproj;" />
+			Exclude="$(MSBuildStartupDirectory)\AllProjects.csproj;
+					 $(MSBuildStartupDirectory)\Facebook\*.csproj;
+					 $(MSBuildStartupDirectory)\JniDemo\*.csproj;
+					 $(MSBuildStartupDirectory)\MapsAndLocationDemo\*.csproj;
+					 $(MSBuildStartupDirectory)\AndroidBeamDemo\*.csproj" />
 	</ItemGroup>
 	
 	<Target Name="Build">
