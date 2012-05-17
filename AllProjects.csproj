@@ -55,7 +55,7 @@
 				 $(MSBuildStartupDirectory)\ContactManager\*.csproj" />
 		<HoneyCombProjects
 			Include="$(MSBuildStartupDirectory)\**\*.csproj"
-			Exclude="$(MSBuildStartupDirectory)\**\*.csproj;
+			Exclude="$(MSBuildStartupDirectory)\AllProjects.csproj;
 				 $(MSBuildStartupDirectory)\ContactsProviderDemo\*.csproj;
 				 $(MSBuildStartupDirectory)\GridLayoutDemo\*.csproj;
 				 $(MSBuildStartupDirectory)\HelloTabsICS\*.csproj;
@@ -83,7 +83,7 @@
 			Properties="TargetFrameworkVersion=v2.3" />
 		<MSBuild
 			Condition="'$(AndroidPlatform)' == 'Honeycomb'"
-			Projects="@(HoneycombProjects)"
+			Projects="@(HoneyCombProjects)"
 			Targets="SignAndroidPackage"
 			Properties="TargetFrameworkVersion=v3.1" />
 		<MSBuild
